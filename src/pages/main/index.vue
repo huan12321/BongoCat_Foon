@@ -10,6 +10,8 @@ import { round } from 'es-toolkit'
 import { nth } from 'es-toolkit/compat'
 import { onMounted, onUnmounted, ref, watch } from 'vue'
 
+import CounterDisplay from './components/CounterDisplay.vue'
+
 import { useDevice } from '@/composables/useDevice'
 import { useGamepad } from '@/composables/useGamepad'
 import { useModel } from '@/composables/useModel'
@@ -175,5 +177,6 @@ function handleMouseMove(event: MouseEvent) {
         重绘中...
       </span>
     </div>
+    <CounterDisplay />
   </div>
 </template>

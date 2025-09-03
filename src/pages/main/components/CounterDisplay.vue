@@ -14,40 +14,26 @@ const counterStore = useCounterStore()
 <style scoped>
 .counter-container {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  /* 移除可能导致裁剪的属性 */
-  overflow: visible; /* 确保内容不被裁剪 */
-  min-width: 120px; /* 设置最小宽度，确保数字和按钮都能显示 */
-  width: auto; /* 自动宽度自适应宽度 */
+  top: 20px;
+  left: 20px;
+  overflow: visible;
+  width: auto;
 
-  /* 其他样式式保持不变 */
-  background: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
+  /* 移除背景色和相关样式 */
+  color: #333333; /* 使用深色文本提高可读性 */
   padding: 12px 16px;
-  border-radius: 8px;
-  display: flex;
   gap: 15px;
   align-items: center;
   z-index: 9999;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .count {
-  /* 增加数字区域的宽度适应能力 */
-  white-space: nowrap; /* 防止数字换行 */
-  font-size: 20px;
+  white-space: nowrap;
+  font-size: 24px; /* 稍微增大字体 */
   font-weight: bold;
-  padding: 0 5px; /* 增加左右内边距 */
-}
+  padding: 0 5px;
 
-.reset-btn {
-  background: #ff4d4f;
-  border: none;
-  color: white;
-  border-radius: 4px;
-  padding: 4px 8px;
-  cursor: pointer;
-  font-size: 12px;
+  /* 使用跨平台兼容的可爱风格字体 */
+  font-family: 'Comic Sans MS', 'Marker Felt', sans-serif;
 }
 </style>

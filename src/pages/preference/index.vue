@@ -4,6 +4,7 @@ import { onMounted, ref } from 'vue'
 
 import About from './components/about/index.vue'
 import Cat from './components/cat/index.vue'
+import Counter from './components/counter/index.vue'
 import General from './components/general/index.vue'
 import Model from './components/model/index.vue'
 import Shortcut from './components/shortcut/index.vue'
@@ -41,6 +42,11 @@ const menus = [
     label: '快捷键',
     icon: 'i-solar:keyboard-bold',
     component: Shortcut,
+  },
+  {
+    label: '计数器管理',
+    icon: 'i-solar:magic-stick-3-bold',
+    component: Counter,
   },
   {
     label: '关于',

@@ -1,13 +1,19 @@
 <!-- src/pages/main/components/CounterDisplay.vue (新增组件) -->
 <script setup lang="ts">
+import { useCatStore } from '@/stores/cat'
 import { useCounterStore } from '@/stores/counter'
 
 const counterStore = useCounterStore()
+const catStore = useCatStore()
 </script>
 
 <template>
   <div class="counter-container">
-    <span class="count">{{ counterStore.keyPressCount }}</span>
+    <span
+      class="count"
+      :style="`color: rgb(${catStore.counterColorR}, ${catStore.counterColorG}, ${catStore.counterColorB}); font-size:${catStore.counterSize}px;`"
+    >{{ catStore.counterColor }} {{ counterStore.keyPressCount }}
+    </span>
   </div>
 </template>
 
@@ -29,7 +35,6 @@ const counterStore = useCounterStore()
 
 .count {
   white-space: nowrap;
-  font-size: 24px; /* 稍微增大字体 */
   font-weight: bold;
   padding: 0 5px;
 

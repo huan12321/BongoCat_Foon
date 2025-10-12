@@ -11,6 +11,7 @@ import { useModel } from './useModel'
 import { useTauriListen } from './useTauriListen'
 
 import { useCounterStore } from '@/stores/counter'
+import { useKeyboardStatsStore } from '@/stores/keyboardStats'
 import { useModelStore } from '@/stores/model'
 
 interface MouseButtonEvent {
@@ -32,6 +33,7 @@ type DeviceEvent = MouseButtonEvent | MouseMoveEvent | KeyboardEvent
 
 export function useDevice() {
   const counterStore = useCounterStore()
+  const keyboardStats = useKeyboardStatsStore()
   const modelStore = useModelStore()
   const lastCursorPoint = ref<CursorPoint>({ x: 0, y: 0 })
   const { handlePress, handleRelease, handleMouseChange, handleMouseMove } = useModel()
@@ -87,6 +89,7 @@ export function useDevice() {
 
       if (kind === 'KeyboardPress') {
         counterStore.increment()
+        keyboardStats.recordKeyPress()
         return handlePress(nextValue)
       }
       return handleRelease(nextValue)

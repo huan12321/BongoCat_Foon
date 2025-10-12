@@ -8,6 +8,7 @@ import Counter from './components/counter/index.vue'
 import General from './components/general/index.vue'
 import Model from './components/model/index.vue'
 import Shortcut from './components/shortcut/index.vue'
+import StatsViewer from './components/stats-viewer/index.vue'
 
 import UpdateApp from '@/components/update-app/index.vue'
 import { useTray } from '@/composables/useTray'
@@ -35,7 +36,7 @@ const menus = [
   },
   {
     label: '模型管理',
-    icon: 'i-solar:magic-stick-3-bold',
+    icon: 'i-solar:keyboard-bold',
     component: Model,
   },
   {
@@ -47,6 +48,11 @@ const menus = [
     label: '计数器管理',
     icon: 'i-solar:magic-stick-3-bold',
     component: Counter,
+  },
+  {
+    label: '统计管理', // 新增
+    icon: 'i-solar:calculator-bold', // 计数器图标
+    component: StatsViewer, // 新增的统计组件容器
   },
   {
     label: '关于',

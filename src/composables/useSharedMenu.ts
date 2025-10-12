@@ -3,10 +3,12 @@ import { range } from 'es-toolkit'
 
 import { showWindow } from '@/plugins/window'
 import { useCatStore } from '@/stores/cat'
+import { useCounterStore } from '@/stores/counter'
 import { isMac } from '@/utils/platform'
 
 export function useSharedMenu() {
   const catStore = useCatStore()
+  const counterStore = useCounterStore()
 
   const getScaleMenuItems = async () => {
     const options = range(50, 151, 25)
@@ -62,6 +64,12 @@ export function useSharedMenu() {
         text: '偏好设置...',
         accelerator: isMac ? 'Cmd+,' : '',
         action: () => showWindow('preference'),
+      }),
+      MenuItem.new({
+        text: '计数清零',
+        action: () => {
+          counterStore.reset()
+        },
       }),
       MenuItem.new({
         text: catStore.visible ? '隐藏猫咪' : '显示猫咪',

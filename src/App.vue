@@ -17,7 +17,9 @@ import { LISTEN_KEY } from './constants'
 import { hideWindow, showWindow } from './plugins/window'
 import { useAppStore } from './stores/app'
 import { useCatStore } from './stores/cat'
+import { useCounterStore } from './stores/counter'
 import { useGeneralStore } from './stores/general'
+import { useKeyboardStatsStore } from './stores/keyboardStats'
 import { useModelStore } from './stores/model'
 import { useShortcutStore } from './stores/shortcut.ts'
 
@@ -28,6 +30,8 @@ const catStore = useCatStore()
 const generalStore = useGeneralStore()
 const shortcutStore = useShortcutStore()
 const appWindow = getCurrentWebviewWindow()
+const counterStore = useCounterStore()
+const keyboardStatsStore = useKeyboardStatsStore()
 const { isRestored, restoreState } = useWindowState()
 const { darkAlgorithm, defaultAlgorithm } = theme
 
@@ -41,6 +45,8 @@ onMounted(async () => {
   await catStore.$tauri.start()
   await generalStore.$tauri.start()
   await shortcutStore.$tauri.start()
+  await counterStore.$tauri.start()
+  await keyboardStatsStore.$tauri.start()
   await restoreState()
   catStore.init()
 })
